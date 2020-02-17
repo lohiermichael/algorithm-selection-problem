@@ -1,8 +1,12 @@
 import random
+from typing import Tuple
 
 
 class InputList(list):
-    def __init__(self, l_length: int = 100, min_value: int = 0, max_value: int = 10000, distinct_elements: bool = True,
+    def __init__(self, l_length: int = 100,
+                 min_value: int = 0,
+                 max_value: int = 10000,
+                 distinct_elements: bool = True,
                  worst_case: bool = False):
         """
         Object of input list for algorithms
@@ -62,6 +66,33 @@ class InputList(list):
             self.sort(reverse=True)
 
 
+class InputListIndex(Tuple):
+    def __new__(cls, l_length: int = 100,
+                min_value: int = 0,
+                max_value: int = 10000,
+                distinct_elements: bool = True,
+                worst_case: bool = False):
+        """
+        Object of input list and index. For instance, for problems like the Selection Algorithm for lists,
+        The input of a solution algorithm is a list L AND a number of order statistics (i.e an integer in
+        [0, len(L)-1]
+
+        Args:
+            l_length (int): Length of the input list
+            min_value (int): Minimal value of the elements of the list
+            max_value (int): Maximal value of the elements of the list
+            distinct_elements (bool): distinct elements in the list
+            worst_case (bool): in the context of list sorting, it gives a reverse
+        """
+        cls.input_list = InputList(l_length=l_length,
+                                   min_value=min_value,
+                                   max_value=max_value,
+                                   distinct_elements=distinct_elements,
+                                   worst_case=worst_case)
+        cls.index = random.randint(0, len(cls.input_list))
+        return super().__new__(InputListIndex, (cls.input_list, cls.index))
+
+
 if __name__ == '__main__':
-    test = InputList(worst_case=False)
-    print(test)
+    test = InputListIndex(l_length=3)
+    print(test.index)
