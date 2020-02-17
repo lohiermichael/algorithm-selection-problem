@@ -89,10 +89,10 @@ class InputListIndex(Tuple):
                                    max_value=max_value,
                                    distinct_elements=distinct_elements,
                                    worst_case=worst_case)
-        cls.index = random.randint(0, len(cls.input_list))
+        cls.index = random.randint(0, len(cls.input_list)-1)
         return super().__new__(InputListIndex, (cls.input_list, cls.index))
 
 
 if __name__ == '__main__':
     test = InputListIndex(l_length=3)
-    print(test.index)
+    print(test)
