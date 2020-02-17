@@ -8,7 +8,9 @@ This problem often follows the problem of sorting list mainly because one of its
 
 ### Input
 
-Given a list of n integers: `L = [a1, ..., an]`
+Given:
+* a list of n integers: `L = [a1, ..., an]`
+* i and integer of [1, n] 
 
 ### Goal 
 
@@ -19,4 +21,14 @@ We want to return the value of the ith order statistic (i.e. ith smallest elemen
 - the n/2th element if n is even
 
 ## Solutions
+
+### Reduction to sorting
+
+A simple approach is to sort the array and take the ith element of the list. The complexity of this algorithm is that of the sorting algorithm.
+
+If we take **merge_sort** as the sorting algorithm, the complexity will be in **O(nln(n))** in average.
+
+However, as we can't sort a list any faster than in **O(nln(n))**, this complexity is an lower bound of the complexity we can achieve. See this [video](https://www.youtube.com/watch?v=aFveIyII5D4&list=PLXFMmlk03Dt7Q0xr1PIAriY5623cKiH7V&index=39) for more explanation.
+
+
 
