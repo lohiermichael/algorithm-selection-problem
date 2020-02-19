@@ -3,45 +3,48 @@ from utils.selection_algorithm_support import check_order_statistics
 from utils.inputs import InputList
 
 
-def merge_sort_reduction(L: list, i: int) -> int:
+def merge_sort_reduction(L_input: list, i: int) -> int:
     """
     Perform the selection algorithm with the sorting reduction strategy using merge_sort for the sorting algorithm
     Args:
-        L (list): Input list of integers
+        L_input (list): Input list of integers
         i (int): number of order statistics of the input list in [0..len(L)-1]
 
     Returns:
         int: The value of the the i-th order statistic of the input list
     """
+    L = L_input.copy()
     check_order_statistics(L, i)
     return merge_sort(L)[i]
 
 
-def quick_sort_reduction(L: list, i: int) -> int:
+def quick_sort_reduction(L_input: list, i: int) -> int:
     """
     Perform the selection algorithm with the sorting reduction strategy using quick_sort for the sorting algorithm
     Args:
-        L (list): Input list of integers
+        L_input (list): Input list of integers
         i (int): number of order statistics of the input list in [0..len(L)-1]
 
     Returns:
         int: The value of the the i-th order statistic of the input list
     """
+    L = L_input.copy()
     check_order_statistics(L, i)
     return quick_sort(L)[i]
 
 
-def built_in_sort_reduction(L: list, i: int) -> int:
+def built_in_sort_reduction(L_input: list, i: int) -> int:
     """
     Perform the selection algorithm with the sorting reduction strategy using the built-in sorted method on list
      for the sorting algorithm
     Args:
-        L (list): Input list of integers
+        L_input (list): Input list of integers
         i (int): number of order statistics of the input list in [0..len(L)-1]
 
     Returns:
         int: The value of the the i-th order statistic of the input list
     """
+    L = L_input.copy()
     check_order_statistics(L, i)
     return sorted(L)[i]
 
