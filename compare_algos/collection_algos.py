@@ -3,7 +3,7 @@ from typing import *
 import pandas as pd
 from utils.inputs import InputListIndex
 import matplotlib.pyplot as plt
-from selection_algorithms.quick_selection import selection_first_element
+# from selection_algorithms.quick_selection import selection_first_element
 from selection_algorithms.sorting_reduction import quick_sort_reduction, built_in_sort_reduction
 
 
@@ -34,20 +34,20 @@ class CollectionAlgos(List[AlgoAnalysisListIndex]):
         for algo in self.list_algorithms:
             self.append(AlgoAnalysisListIndex(algo))
 
-    def have_same_output(self, l: list) -> bool:
+    def have_same_output(self, *input) -> bool:
         """
          Inform if the results of all the passed
         algorithms return the same output for a given list
 
         Parameters
         ----------
-        l (list): Input list of the passed algorithms
+        input: InputListIndex object (a tuple of with a list and an index of this list)
 
         Returns
         -------
         bool
         """
-        return len(set(map(tuple, [algo(l) for algo in self.list_algorithms]))) == 1
+        return len(set([algo(*input) for algo in self.list_algorithms])) == 1
 
     def calculate_time_single_input(self, **kwargs) -> Dict[str, List[float]]:
         """
@@ -112,7 +112,7 @@ class CollectionAlgos(List[AlgoAnalysisListIndex]):
 
 if __name__ == '__main__':
     test_list = InputListIndex()
-    compare_algo = CollectionAlgos(selection_first_element, built_in_sort_reduction)
-    df = compare_algo.calculate_time_multiple_lists(range_length=3000, harmonization=True, f_harmonization=100)
-    df.plot()
-    plt.show()
+    # compare_algo = CollectionAlgos(selection_first_element, built_in_sort_reduction)
+    # df = compare_algo.calculate_time_multiple_lists(range_length=3000, harmonization=True, f_harmonization=100)
+    # df.plot()
+    # plt.show()
