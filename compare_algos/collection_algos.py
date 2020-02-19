@@ -3,7 +3,7 @@ from typing import *
 import pandas as pd
 from utils.inputs import InputListIndex
 import matplotlib.pyplot as plt
-# from selection_algorithms.quick_selection import selection_first_element
+from selection_algorithms.first_element_selection import selection_first_element
 from selection_algorithms.sorting_reduction import quick_sort_reduction, built_in_sort_reduction
 
 
@@ -112,7 +112,7 @@ class CollectionAlgos(List[AlgoAnalysisListIndex]):
 
 if __name__ == '__main__':
     test_list = InputListIndex()
-    # compare_algo = CollectionAlgos(selection_first_element, built_in_sort_reduction)
-    # df = compare_algo.calculate_time_multiple_lists(range_length=3000, harmonization=True, f_harmonization=100)
-    # df.plot()
-    # plt.show()
+    compare_algo = CollectionAlgos(selection_first_element, quick_sort_reduction)
+    df = compare_algo.calculate_time_multiple_lists(range_length=3000, harmonization=True, f_harmonization=100)
+    df.plot()
+    plt.show()
