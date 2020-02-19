@@ -1,4 +1,5 @@
 from utils.inputs import InputListIndex
+from utils.selection_algorithm_support import check_order_statistics
 
 
 def partition_fist_element(L: list, left: int, right: int):
@@ -41,6 +42,7 @@ def selection_first_element(L_input: list, i: int) -> int:
 
     """
     L = L_input.copy()
+    check_order_statistics(L, i)
 
     def sub_function(L: list, left: int, right: int, i: int):
         if left < right:
