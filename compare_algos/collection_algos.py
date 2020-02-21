@@ -183,7 +183,6 @@ class CollectionAlgosListIndex(List[AlgoAnalysisListIndex]):
                                       harmonization: bool = True,
                                       f_harmonization=10,
                                       worst_case: bool = False,
-                                      ignore_same_output=False,
                                       **kwargs) -> pd.DataFrame:
         """
         Generate random input lists of variate length within the range size
