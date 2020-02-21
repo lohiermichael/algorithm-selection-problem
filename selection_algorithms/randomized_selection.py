@@ -2,7 +2,7 @@ from utils.inputs import InputListIndex
 from utils.selection_algorithm_support import check_order_statistics
 from selection_algorithms.first_element_selection import selection_first_element
 import random
-from compare_algos.collection_algos import CollectionAlgos
+from compare_algos.collection_algos import CollectionAlgosListIndex
 
 
 def partition_random_pivot(L: list, left: int, right: int) -> int:
@@ -72,7 +72,7 @@ def randomized_selection(L_input: list, i: int) -> int:
 
 
 if __name__ == '__main__':
-    compare_algo = CollectionAlgos(randomized_selection, selection_first_element)
+    compare_algo = CollectionAlgosListIndex(randomized_selection, selection_first_element)
     for i in range(1, 10):
         input_test = InputListIndex(l_length=5 * i)
         print(input_test)
